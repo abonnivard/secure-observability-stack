@@ -1,0 +1,19 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 30s
+
+# Scrape configurations
+# host.docker.internal is used to access services running on the host machine from within Docker containers.
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+    - targets: ['localhost:9090']
+  - job_name: 'node_exporter'
+    static_configs:
+    - targets: ['host.docker.internal:9100']
+  - job_name: 'loki'
+    static_configs:
+    - targets: ['loki:3100']
+  - job_name: "fail2ban"
+    static_configs:
+      - targets: ["fail2ban:9191"]

@@ -1,0 +1,10 @@
+# Docker
+docker-compose.override.yml
+.env
+**/data
+**/*.db
+**/*.log
+
+
+# OS
+.DS_Store

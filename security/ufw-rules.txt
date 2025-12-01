@@ -1,0 +1,14 @@
+# Basic UFW rules
+# Allow SSH
+22/tcp ALLOW
+# Allow HTTP/HTTPS if needed
+80/tcp ALLOW
+443/tcp ALLOW
+# Allow Grafana (LAN only) - change as needed
+3000/tcp ALLOW
+# Allow Prometheus (LAN only)
+9090/tcp ALLOW
+# Allow Loki local
+3100/tcp ALLOW 127.0.0.1
+# Allow node exporter on host bridge if using docker bridge
+9100/tcp on docker0 ALLOW Anywhere
